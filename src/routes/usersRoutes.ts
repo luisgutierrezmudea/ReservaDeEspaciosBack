@@ -8,11 +8,12 @@ class UserRoutes{
         this.config();
     }
     config():void{
+        // usuarios
         this.router.get('/',usersController.list);
         this.router.get('/:id',usersController.findOne);
         this.router.post('/',usersController.create);
         this.router.put('/:id',usersController.update);
-        this.router.delete('/:id',usersController.delete);
+        this.router.delete('/:id',usersController.delete);        
     }
 }
 const userRoutes = new UserRoutes();

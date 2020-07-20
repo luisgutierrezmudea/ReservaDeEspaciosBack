@@ -6,6 +6,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import reservationRoutes from './routes/reservasRoutes';
 import usersRoutes from './routes/usersRoutes';
+import profilesRoutes from './routes/profilesRoutes';
 class Server{
 
     public app:Application;
@@ -26,6 +27,7 @@ class Server{
         this.app.use(indexRoutes);
         this.app.use('/api/reservas',reservationRoutes);
         this.app.use('/api/usuarios',usersRoutes);
+        this.app.use('/api/perfiles',profilesRoutes);
     }
     start():void{
         this.app.listen(this.app.get('port'),() =>{

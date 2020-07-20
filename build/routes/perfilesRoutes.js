@@ -5,19 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const usersController_1 = __importDefault(require("../controllers/usersController"));
-class UserRoutes {
+class ProfilesRoutes {
     constructor() {
         this.router = express_1.Router();
         this.config();
     }
     config() {
-        // usuarios
-        this.router.get('/', usersController_1.default.list);
-        this.router.get('/:id', usersController_1.default.findOne);
-        this.router.post('/', usersController_1.default.create);
-        this.router.put('/:id', usersController_1.default.update);
-        this.router.delete('/:id', usersController_1.default.delete);
+        //perfiles  de usuario
+        this.router.post('/perfiles/', usersController_1.default.createP);
+        this.router.get('/perfiles/', usersController_1.default.listP);
+        this.router.put('/perfiles/:tipo', usersController_1.default.updateP);
+        this.router.delete('/perfiles/:tipo', usersController_1.default.deleteP);
     }
 }
-const userRoutes = new UserRoutes();
-exports.default = userRoutes.router;
+const profilesRoutes = new ProfilesRoutes();
+exports.default = profilesRoutes.router;
