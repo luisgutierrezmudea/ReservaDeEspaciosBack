@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import reservasController from '../controllers/reservasController'
+import reservationsController from '../controllers/reservationsController'
 import pool from '../database';
 class ReservationRoutes{
     public router:Router = Router();
@@ -8,7 +8,7 @@ class ReservationRoutes{
         this.config();
     }
     config():void{
-        this.router.get('/',reservasController.index);
+        this.router.get('/',reservationsController.index);
     }
 }
 const reservationRoutes = new ReservationRoutes();

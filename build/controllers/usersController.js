@@ -57,36 +57,6 @@ class UsersController {
             res.json({ message: 'The user was updated' });
         });
     }
-    // Tabla perfiles (tipos de usuario)
-    createP(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO perfiles set ?', [req.body]);
-            res.json({ message: 'Profile saved' });
-        });
-    }
-    deleteP(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { tipo } = req.params;
-            yield database_1.default.query('DELETE FROM perfiles WHERE tipo = ?', [tipo]);
-            res.json({ message: 'The profile was deleted' });
-        });
-    }
-    updateP(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { tipo } = req.params;
-            yield database_1.default.query('UPDATE perfiles set ? WHERE tipo = ?', [req.body, tipo]);
-            res.json({ message: 'The profile was updated' });
-        });
-    }
-    listP(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM perfiles', function (err, result, fields) {
-                if (err)
-                    throw err;
-                res.json(result);
-            });
-        });
-    }
 }
 const usersController = new UsersController();
 exports.default = usersController;

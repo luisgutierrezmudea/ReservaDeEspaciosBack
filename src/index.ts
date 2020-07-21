@@ -4,9 +4,14 @@ import cors from 'cors';
 
 
 import indexRoutes from './routes/indexRoutes';
-import reservationRoutes from './routes/reservasRoutes';
+import reservationsRoutes from './routes/reservationsRoutes';
 import usersRoutes from './routes/usersRoutes';
 import profilesRoutes from './routes/profilesRoutes';
+import librariesRoutes from './routes/librariesRoutes';
+import tablesStateRoutes from './routes/tablesStateRoutes';
+import reservationsStateRoutes from './routes/reservationsStateRoutes';
+
+
 class Server{
 
     public app:Application;
@@ -25,9 +30,12 @@ class Server{
     }
     routes():void{
         this.app.use(indexRoutes);
-        this.app.use('/api/reservas',reservationRoutes);
+        this.app.use('/api/reservas',reservationsRoutes);
         this.app.use('/api/usuarios',usersRoutes);
         this.app.use('/api/perfiles',profilesRoutes);
+        this.app.use('/api/bibliotecas',librariesRoutes);
+        this.app.use('/api/estados_mesas',tablesStateRoutes);
+        this.app.use('/api/estados_reservas',reservationsStateRoutes);
     }
     start():void{
         this.app.listen(this.app.get('port'),() =>{
