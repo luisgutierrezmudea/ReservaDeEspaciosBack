@@ -11,6 +11,7 @@ class UserRoutes{
         // usuarios
         this.router.get('/',usersController.list);
         this.router.get('/:id',usersController.findOne);
+        this.router.post('/especial/:usuario/:contrasena',usersController.findEspecialUser);
         this.router.post('/',usersController.create);
         this.router.put('/:id',usersController.update);
         this.router.delete('/:id',usersController.delete);        

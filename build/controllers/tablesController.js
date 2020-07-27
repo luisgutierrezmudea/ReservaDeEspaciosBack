@@ -13,62 +13,61 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class ReservationsController {
+class TablesController {
     // Tabla de  mesas
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO reservas set ?', [req.body]);
-            res.json({ message: 'Reservation saved' });
+            yield database_1.default.query('INSERT INTO mesas set ?', [req.body]);
+            res.json({ message: 'Table saved' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM reservas WHERE id = ?', [id]);
-            res.json({ message: 'The reservation was deleted' });
+            yield database_1.default.query('DELETE FROM mesas WHERE id_biblioteca = ?', [id]);
+            res.json({ message: 'The table was deleted' });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE reservas set ? WHERE id = ?', [req.body, id]);
-            res.json({ message: 'The reservation was updated' });
+            yield database_1.default.query('UPDATE mesas set ? WHERE id_biblioteca = ?', [req.body, id]);
+            res.json({ message: 'The table was updated' });
         });
     }
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('SELECT * FROM reservas', function (err, result, fields) {
+            yield database_1.default.query('SELECT * FROM mesas', function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
             });
         });
     }
-    listOfUserActives(req, res) {
+    listFloor(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('SELECT * FROM reservas WHERE (id_usuarios = ?) and (id_estado = 1)', [id], function (err, result, fields) {
+            const { piso } = req.params;
+            yield database_1.default.query('SELECT * FROM mesas WHERE piso = ?', [piso], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
             });
         });
     }
-    listOfUserHistory(req, res) {
+    listLibrary(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
-            yield database_1.default.query('SELECT * FROM reservas WHERE (id_usuarios = ?)', [id], function (err, result, fields) {
+            const { biblioteca } = req.params;
+            yield database_1.default.query('SELECT * FROM mesas WHERE biblioteca = ?', [biblioteca], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
             });
         });
     }
-    listActivesDateTable(req, res) {
+    listState(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { mesa } = req.params;
-            const { fecha } = req.params;
-            yield database_1.default.query('SELECT * FROM reservas WHERE (mesa = ?) and (fecha = ?)', [mesa, fecha], function (err, result, fields) {
+            const { estado } = req.params;
+            yield database_1.default.query('SELECT * FROM mesas WHERE id_estado_mesa = ?', [estado], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
@@ -76,5 +75,5 @@ class ReservationsController {
         });
     }
 }
-const reservationsController = new ReservationsController();
-exports.default = reservationsController;
+const tablesController = new TablesController();
+exports.default = tablesController;

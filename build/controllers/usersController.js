@@ -37,6 +37,20 @@ class UsersController {
             });
         });
     }
+    findEspecialUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { usuario } = req.params;
+            const { contrasena } = req.params;
+            yield database_1.default.query('SELECT * FROM usuarios WHERE  (documento = ?) and (usuario = ?)', [contrasena, usuario], function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    return res.json(result[0]);
+                }
+                res.status(404).json({ validado: false });
+            });
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO usuarios set ?', [req.body]);
