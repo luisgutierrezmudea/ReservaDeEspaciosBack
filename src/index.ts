@@ -11,6 +11,7 @@ import librariesRoutes from './routes/librariesRoutes';
 import tablesStateRoutes from './routes/tablesStateRoutes';
 import reservationsStateRoutes from './routes/reservationsStateRoutes';
 import tablesRoutes from './routes/tablesRoutes';
+import imgFlatRoutes from './routes/imgFlatRoutes';
 
 
 class Server{
@@ -39,6 +40,7 @@ class Server{
         this.app.use('/api/estados_reservas',reservationsStateRoutes);
         this.app.use('/api/mesas',tablesRoutes);
         this.app.use('/api/reservas',tablesRoutes);
+        this.app.use('/api/img_pisos',imgFlatRoutes);
     }
     start():void{
         this.app.listen(this.app.get('port'),() =>{

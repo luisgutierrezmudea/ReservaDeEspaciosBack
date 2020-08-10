@@ -74,6 +74,28 @@ class TablesController {
             });
         });
     }
+    listAvailable(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { fecha } = req.params;
+            const { horas } = req.params;
+            const { horainicio } = req.params;
+            yield database_1.default.query('SELECT * FROM mesas WHERE id_estado_mesa = ?', [fecha, horas, horainicio], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
+    listFloors(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { biblioteca } = req.params;
+            yield database_1.default.query('SELECT DISTINCT piso FROM mesas WHERE biblioteca = ?', [biblioteca], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
 }
 const tablesController = new TablesController();
 exports.default = tablesController;

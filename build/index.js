@@ -14,6 +14,7 @@ const librariesRoutes_1 = __importDefault(require("./routes/librariesRoutes"));
 const tablesStateRoutes_1 = __importDefault(require("./routes/tablesStateRoutes"));
 const reservationsStateRoutes_1 = __importDefault(require("./routes/reservationsStateRoutes"));
 const tablesRoutes_1 = __importDefault(require("./routes/tablesRoutes"));
+const imgFlatRoutes_1 = __importDefault(require("./routes/imgFlatRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -37,6 +38,7 @@ class Server {
         this.app.use('/api/estados_reservas', reservationsStateRoutes_1.default);
         this.app.use('/api/mesas', tablesRoutes_1.default);
         this.app.use('/api/reservas', tablesRoutes_1.default);
+        this.app.use('/api/img_pisos', imgFlatRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

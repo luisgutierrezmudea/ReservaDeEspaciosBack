@@ -16,6 +16,9 @@ class TablesRoutes{
         this.router.get('/listar/piso/:piso',tablesController.listFloor);
         this.router.get('/listar/biblioteca/:biblioteca',tablesController.listLibrary);
         this.router.get('/listar/estado/:estado',tablesController.listState);
+        this.router.get('/listar/disponibles/:fecha/:horas/:horainicio',tablesController.listAvailable);
+        this.router.get('/listar/pisos/:biblioteca',tablesController.listFloors);
+        
 
                 
     }

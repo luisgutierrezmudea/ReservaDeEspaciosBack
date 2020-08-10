@@ -44,6 +44,22 @@ class TablesController {
             res.json(result);
         });
     }
+    public async listAvailable(req: Request, res: Response) {
+        const { fecha } = req.params;
+        const { horas } = req.params;
+        const { horainicio } = req.params;
+        await pool.query('SELECT * FROM mesas WHERE id_estado_mesa = ?',[fecha,horas,horainicio], function (err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+    public async listFloors(req: Request, res: Response) {
+        const { biblioteca } = req.params;
+        await pool.query('SELECT DISTINCT piso FROM mesas WHERE biblioteca = ?', [biblioteca], function (err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
 }
 
 const tablesController = new TablesController();
