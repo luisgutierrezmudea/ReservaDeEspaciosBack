@@ -1,0 +1,1366 @@
+{
+	"info": {
+		"_postman_id": "a337814b-1530-4cb8-84e2-4f43ad433b0d",
+		"name": "ReservadeEspacios",
+		"description": "Servicios creados para el acceso de la base de datos de la pagina reserva de espacios\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ListarUsuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarUsuarioporDocumento",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios/1020459011",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"1020459011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarUsuarioEspecial",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios/especial/SuperAdmin/0987654322",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"especial",
+						"SuperAdmin",
+						"0987654322"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUsuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"Oscar Lopera\",\r\n    \"documento\":\"1020459010\",\r\n    \"email\":\"luis.gutierrezm@udea.edu.co\",\r\n    \"horas_reservas_hoy\":0,\r\n    \"horas_reservas_manana\":0,\r\n    \"tipo_perfil\":1\r\n\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"Juan Perez\",\r\n    \"documento\":987654321,\r\n    \"email\":\"juan.perez@udea.edu.co\",\r\n    \"horas_reservas_hoy\":0,\r\n    \"horas_reservas_manana\":0,\r\n    \"tipo_perfil\":1\r\n\r\n}\r\n\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/usuarios/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearPerfilesUsuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\":3,\r\n    \"nombre\":\"SuperAdmin\",\r\n    \"descripcion\":\"Perfil para el administrador de la aplicación.Podra ver informacion de otros usuarios como reservas activas e historial y ademas gestionar registros de la base de datos.\"\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/perfiles",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"perfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarPerfiles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/perfiles",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"perfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarPerfilesUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"nombre\":\"usuario_especial\",\r\n    \"descripcion\":\"Perfil para funcionarios del sistema de bibliotecas.Podra ver informacion de otros usuarios como reservas activas e historial.\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/perfiles/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"perfiles",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarPerfilesUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/perfiles/4",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"perfiles",
+						"4"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearBiblioteca",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Centro de documentacion de Ingeniería.CENDOI.\",\r\n    \"direccion\":\"Cl. Barranquilla #53-288, Medellín, Antioquia.Bloque 21.\",\r\n    \"img\":\"http://www.udea.edu.co/wps/wcm/connect/udea/b857d973-427a-4959-ba20-5fe84c7cc9d3/1/sala_rencuadre.jpg?MOD=AJPERES\"\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/bibliotecas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"bibliotecas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarBibliotecas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/bibliotecas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"bibliotecas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarBiblioteca",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hora_abrir\":8,\r\n    \"hora_cerrar\":18,\r\n    \"diasmax_reserva\":2,\r\n    \"horasmax_reserva\":2\r\n\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/bibliotecas/3",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"bibliotecas",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarBiblioteca",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/bibliotecas/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"bibliotecas",
+						"1"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearImagenPisoBiblioteca",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_biblioteca\":2,    \r\n    \"imagen\":\"https://www.udea.edu.co/wps/wcm/connect/udea/3cfcf10a-3a22-44e5-b5f6-438c061a224e/1/IMG_3142.JPG?MOD=AJPERES\",\r\n    \"piso\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/img_pisos/crear",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"img_pisos",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarImagenesPisosBibliotecas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/img_pisos/listar",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"img_pisos",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarImagenPisoBiblioteca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/img_pisos/listar/imagenes/1/3",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"img_pisos",
+						"listar",
+						"imagenes",
+						"1",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarImagenPisoBiblioteca",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_biblioteca\":1,\r\n    \"imagen\":\"https://4.bp.blogspot.com/-Q9lV8smcT9I/VW94BlW-3YI/AAAAAAAABGU/jUCTkU4HtXw/s1600/DSC_0117.JPG\"\r\n\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/img_pisos/actualizar/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"img_pisos",
+						"actualizar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarImagenPisoBiblioteca",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/img_pisos/borrar/3",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"img_pisos",
+						"borrar",
+						"3"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearEstadodeMesa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\":\"Mantenimiento\"\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_mesas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarEstadosdeMesas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_mesas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEstadoMesa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"descripcion\":\"En mantenimiento.\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_mesas/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_mesas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarEstadoMesa",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_mesas/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_mesas",
+						"2"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearEstadodeReservacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\":\"Liberada\"\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_reservas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarEstadosReservas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_reservas",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEstadoReserva",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"descripcion\":\"En mantenimiento.\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_reservas/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_reservas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarEstadoReserva",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/estados_reservas/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"estados_reservas",
+						"2"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearMesa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_biblioteca\":2,\r\n    \"codigo_qr\":\"Codigo de prueba mesa 2\",\r\n    \"piso\":3,\r\n    \"id_estado_mesa\":1,\r\n    \"biblioteca\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/crear",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarPisosBiblioteca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar/pisos/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar",
+						"pisos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesasporPiso",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar/piso/3",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar",
+						"piso",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesasporBiblioteca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar/biblioteca/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar",
+						"biblioteca",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesasporEstado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar/estado/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar",
+						"estado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesasDisponibles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fecha\":\"2020-08-14 05:00:00\",\r\n    \"piso\":3,\r\n    \"biblioteca\":1,\r\n    \"horainicio\":18,\r\n    \"horafinal\":18.5\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/listar/disponibles",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"listar",
+						"disponibles"
+					]
+				},
+				"description": "Orden de los parametros => /:piso/:fecha/:biblioteca/:horainicio/:horafinal"
+			},
+			"response": []
+		},
+		{
+			"name": "EditarMesa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \r\n    \"codigo_qr\":\"Codigo de prueba mesa 2\",\r\n    \"piso\":2,\r\n    \"id_estado_mesa\":1,\r\n    \"biblioteca\":1\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/actualizar/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"actualizar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarMesa",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/mesas/borrar/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"mesas",
+						"borrar",
+						"2"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "CrearReserva",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_usuarios\":3,\r\n    \"mesa\":4,\r\n    \"fecha\":\"23-07-2020\",\r\n    \"hora_inicio\":\"14\",\r\n    \"hora_final\":\"15\",\r\n    \"id_estado\":1\r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/crear",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarReservas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/listar",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarReservasActivasPorUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/listar/usuario_activas/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"listar",
+						"usuario_activas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarHistoricoReservasUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/listar/usuario_historico/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"listar",
+						"usuario_historico",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarReservasporMesayFecha",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/listar/activas_fecha_mesa/23-08-2020/4",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"listar",
+						"activas_fecha_mesa",
+						"23-08-2020",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarReserva",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"mesa\":2,    \r\n    \"hora_inicio\":\"15\",\r\n    \"hora_final\":\"15\"\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/actualizar/1",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"actualizar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarReserva",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{urlreservas}}/api/reservas/borrar/2",
+					"host": [
+						"{{urlreservas}}"
+					],
+					"path": [
+						"api",
+						"reservas",
+						"borrar",
+						"2"
+					]
+				},
+				"description": "Elimina el tipo de perfil de usuario que se ponga en la url"
+			},
+			"response": []
+		},
+		{
+			"name": "validarusuarioUdeA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"luis.gutierrezm\",\r\n\t\"clave\":\"dif@wu67\",\r\n\t\"loginApp\":\"true\"\r\n}\r\n\r\n"
+				},
+				"url": {
+					"raw": "https://cirene.udea.edu.co/services_globales/validarusuarioPortalInterface.php",
+					"protocol": "https",
+					"host": [
+						"cirene",
+						"udea",
+						"edu",
+						"co"
+					],
+					"path": [
+						"services_globales",
+						"validarusuarioPortalInterface.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

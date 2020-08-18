@@ -47,7 +47,7 @@ class ReservationsController {
     listOfUserActives(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('SELECT * FROM reservas WHERE (id_usuarios = ?) and (id_estado = 1)', [id], function (err, result, fields) {
+            yield database_1.default.query('SELECT reservas.fecha,reservas.hora_final,reservas.hora_inicio,reservas.id,reservas.mesa,bibliotecas.nombre,mesas.piso FROM ((reservas INNER JOIN mesas ON reservas.mesa=mesas.id_biblioteca) INNER JOIN bibliotecas ON mesas.biblioteca=bibliotecas.id ) WHERE (reservas.id_usuarios = ?) and (reservas.id_estado = 1)  ORDER BY reservas.creado DESC', [id], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
@@ -57,7 +57,7 @@ class ReservationsController {
     listOfUserHistory(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('SELECT * FROM reservas WHERE (id_usuarios = ?)', [id], function (err, result, fields) {
+            yield database_1.default.query('SELECT reservas.fecha,reservas.hora_final,reservas.hora_inicio,reservas.id,reservas.mesa,bibliotecas.nombre,mesas.piso,estado_reservas.descripcion FROM ((reservas INNER JOIN mesas ON reservas.mesa=mesas.id_biblioteca) INNER JOIN bibliotecas ON mesas.biblioteca=bibliotecas.id ) INNER JOIN estado_reservas ON reservas.id_estado=estado_reservas.id WHERE (reservas.id_usuarios = ?) and (reservas.id_estado <> 1) ORDER BY reservas.creado DESC', [id], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);

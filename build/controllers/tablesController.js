@@ -76,10 +76,12 @@ class TablesController {
     }
     listAvailable(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { fecha } = req.params;
-            const { horas } = req.params;
-            const { horainicio } = req.params;
-            yield database_1.default.query('SELECT * FROM mesas WHERE id_estado_mesa = ?', [fecha, horas, horainicio], function (err, result, fields) {
+            const { fecha } = req.body;
+            const { horainicio } = req.body;
+            const { horafinal } = req.body;
+            const { piso } = req.body;
+            const { biblioteca } = req.body;
+            yield database_1.default.query('SELECT mesas.id,mesas.id_biblioteca,mesas.piso,mesas.biblioteca FROM mesas INNER JOIN reservas ON mesas.id_biblioteca=reservas.mesa WHERE reservas.id_estado=1 and mesas.id_estado_mesa=1 and mesas.piso=?  and reservas.fecha=? and mesas.biblioteca=? and (((reservas.hora_inicio< ?)and(reservas.hora_final> ?)) or  ((reservas.hora_inicio>=?)and(reservas.hora_final<=?)) or  ((reservas.hora_inicio<?)and(reservas.hora_final>?)))', [parseFloat(piso), fecha, parseFloat(biblioteca), parseFloat(horainicio), parseFloat(horainicio), parseFloat(horainicio), parseFloat(horafinal), parseFloat(horafinal), parseFloat(horafinal)], function (err, result, fields) {
                 if (err)
                     throw err;
                 res.json(result);
