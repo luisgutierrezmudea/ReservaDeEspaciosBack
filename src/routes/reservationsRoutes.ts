@@ -16,6 +16,7 @@ class ReservationsRoutes{
         this.router.get('/listar/usuario_activas/:id',reservationsController.listOfUserActives);       
         this.router.get('/listar/usuario_historico/:id',reservationsController.listOfUserHistory);
         this.router.get('/listar/activas_fecha_mesa/:fecha/:mesa',reservationsController.listActivesDateTable); 
+        this.router.post('/horas_reservadas',reservationsController.countHours);
 
     }
 }

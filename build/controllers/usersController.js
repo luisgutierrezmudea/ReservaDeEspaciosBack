@@ -39,8 +39,8 @@ class UsersController {
     }
     findEspecialUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { usuario } = req.params;
-            const { contrasena } = req.params;
+            const { usuario } = req.body;
+            const { contrasena } = req.body;
             yield database_1.default.query('SELECT * FROM usuarios WHERE  (documento = ?) and (usuario = ?)', [contrasena, usuario], function (err, result, fields) {
                 if (err)
                     throw err;

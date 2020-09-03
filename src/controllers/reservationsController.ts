@@ -45,6 +45,14 @@ class ReservationsController {
             res.json(result);
         });
     }
+    public async countHours(req: Request, res: Response) {
+        const { fecha } = req.body;
+        const { id} = req.body;        
+        await pool.query('SELECT SUM(duracion) horas  FROM reservas WHERE reservas.fecha= ? and reservas.id_usuarios = ? and (reservas.id_estado=1 or reservas.id_estado=3)',[fecha,id], function (err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
 }
 
 const reservationsController = new ReservationsController();

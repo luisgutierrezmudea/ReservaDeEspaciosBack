@@ -22,8 +22,8 @@ class UsersController {
 
     }
     public async findEspecialUser(req: Request, res: Response) {
-        const { usuario } = req.params;
-        const { contrasena } = req.params;
+        const { usuario } = req.body;
+        const { contrasena } = req.body;
         await pool.query('SELECT * FROM usuarios WHERE  (documento = ?) and (usuario = ?)', [contrasena,usuario], function (err, result, fields) {
             if (err) throw err;
             if (result.length > 0) {
